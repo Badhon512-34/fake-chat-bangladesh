@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fake Chat Bangladesh</title>
+  <style>
+    body { font-family: Arial; background: #f4f4f4; margin: 0; padding: 20px; }
+    #chatbox { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+    .msg { margin: 10px 0; }
+    .user { text-align: right; color: blue; }
+    .bot { text-align: left; color: green; }
+    input { width: 75%; padding: 10px; }
+    button { padding: 10px; }
+  </style>
+</head>
+<body>
+  <div id="chatbox">
+    <h2>🤖 Fake Chat Bangladesh</h2>
+    <div id="messages"></div>
+    <input type="text" id="input" placeholder="Write a message..." />
+    <button onclick="sendMsg()">Send</button>
+  </div>
+
+  <script>
+    const messages = document.getElementById("messages");
+    const input = document.getElementById("input");
+
+    function sendMsg() {
+      const userText = input.value.trim();
+      if (!userText) return;
+      addMsg("user", userText);
+      input.value = "";
+      setTimeout(() => {
+        const reply = getBotReply(userText);
+        addMsg("bot", reply);
+      }, 500);
+    }
+
+    function addMsg(type, text) {
+      const div = document.createElement("div");
+      div.className = `msg ${type}`;
+      div.innerText = text;
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function getBotReply(text) {
+      const lower = text.toLowerCase();
+      if (lower.includes("hello")) return "Hi! কেমন আছো?";
+      if (lower.includes("gan") || lower.includes("song")) return "তুমি কোন গান শুনতে চাও? নাম বলো!";
+      if (lower.includes("pic")) return "এই নাও তোমার পছন্দের anime pic!";
+      if (lower.includes("love")) return "ভালোবাসা জিনিসটা জটিল 😅";
+      return "আমি বুঝতে পারলাম না। আবার বলো!";
+    }
+  </script>
+</body>
+</html>
