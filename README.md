@@ -1,4 +1,4 @@
-# ✨ Badhon Rohman Shanto | Futuristic Dev Profile ✨
+# ✨ Badhon Rohman Shanto ✨
 
 <div align="center">
   <!-- Animated Gradient Border Card -->
